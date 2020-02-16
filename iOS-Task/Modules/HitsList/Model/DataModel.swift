@@ -9,7 +9,7 @@
 import Foundation
 
 struct DataModel: Codable {
-    let hits: [hits]?
+    let hits: [hits]
 }
 
 struct hits: Codable {
