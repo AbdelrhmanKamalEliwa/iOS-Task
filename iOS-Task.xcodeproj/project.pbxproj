@@ -13,6 +13,12 @@
 		F4DC6E8E23F981E70086C3ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DC6E8C23F981E70086C3ED /* Main.storyboard */; };
 		F4DC6E9023F981E80086C3ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DC6E8F23F981E80086C3ED /* Assets.xcassets */; };
 		F4DC6E9323F981E80086C3ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DC6E9123F981E80086C3ED /* LaunchScreen.storyboard */; };
+		F4DC6EA523F987840086C3ED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DC6EA423F987840086C3ED /* NetworkManager.swift */; };
+		F4DC6EA923F989880086C3ED /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DC6EA823F989880086C3ED /* APIResult.swift */; };
+		F4DC6EAB23F9899A0086C3ED /* httpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DC6EAA23F9899A0086C3ED /* httpMethod.swift */; };
+		F4DC6EAD23F98A200086C3ED /* APIEnvironmentPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DC6EAC23F98A200086C3ED /* APIEnvironmentPath.swift */; };
+		F4DC6EAF23F98A340086C3ED /* EndPointRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DC6EAE23F98A340086C3ED /* EndPointRouter.swift */; };
+		F4DC6EB123F993DF0086C3ED /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DC6EB023F993DF0086C3ED /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		F4DC6E8F23F981E80086C3ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4DC6E9223F981E80086C3ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4DC6E9423F981E80086C3ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4DC6EA423F987840086C3ED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F4DC6EA823F989880086C3ED /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
+		F4DC6EAA23F9899A0086C3ED /* httpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = httpMethod.swift; sourceTree = "<group>"; };
+		F4DC6EAC23F98A200086C3ED /* APIEnvironmentPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironmentPath.swift; sourceTree = "<group>"; };
+		F4DC6EAE23F98A340086C3ED /* EndPointRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointRouter.swift; sourceTree = "<group>"; };
+		F4DC6EB023F993DF0086C3ED /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,109 @@
 		F4DC6E8523F981E70086C3ED /* iOS-Task */ = {
 			isa = PBXGroup;
 			children = (
-				F4DC6E8623F981E70086C3ED /* AppDelegate.swift */,
-				F4DC6E8823F981E70086C3ED /* SceneDelegate.swift */,
-				F4DC6E8A23F981E70086C3ED /* ViewController.swift */,
-				F4DC6E8C23F981E70086C3ED /* Main.storyboard */,
-				F4DC6E8F23F981E80086C3ED /* Assets.xcassets */,
-				F4DC6E9123F981E80086C3ED /* LaunchScreen.storyboard */,
+				F4DC6E9A23F9823B0086C3ED /* Networking */,
+				F4DC6E9B23F982470086C3ED /* Helpers */,
+				F4DC6E9C23F982580086C3ED /* Modules */,
+				F4DC6E9D23F982640086C3ED /* Assets */,
+				F4DC6E9E23F9826E0086C3ED /* Configurations */,
+				F4DC6E9F23F9828C0086C3ED /* Application */,
 				F4DC6E9423F981E80086C3ED /* Info.plist */,
 			);
 			path = "iOS-Task";
+			sourceTree = "<group>";
+		};
+		F4DC6E9A23F9823B0086C3ED /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F4DC6EA423F987840086C3ED /* NetworkManager.swift */,
+				F4DC6EA623F987AB0086C3ED /* Entities */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F4DC6E9B23F982470086C3ED /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F4DC6EAC23F98A200086C3ED /* APIEnvironmentPath.swift */,
+				F4DC6EAE23F98A340086C3ED /* EndPointRouter.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F4DC6E9C23F982580086C3ED /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F4DC6EA023F982EC0086C3ED /* HitsList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F4DC6E9D23F982640086C3ED /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F4DC6E8F23F981E80086C3ED /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F4DC6E9E23F9826E0086C3ED /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		F4DC6E9F23F9828C0086C3ED /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F4DC6E9123F981E80086C3ED /* LaunchScreen.storyboard */,
+				F4DC6E8623F981E70086C3ED /* AppDelegate.swift */,
+				F4DC6E8823F981E70086C3ED /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F4DC6EA023F982EC0086C3ED /* HitsList */ = {
+			isa = PBXGroup;
+			children = (
+				F4DC6EA323F983150086C3ED /* Model */,
+				F4DC6EA223F983100086C3ED /* View */,
+				F4DC6EA123F983040086C3ED /* Controller */,
+			);
+			path = HitsList;
+			sourceTree = "<group>";
+		};
+		F4DC6EA123F983040086C3ED /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F4DC6E8A23F981E70086C3ED /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F4DC6EA223F983100086C3ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4DC6E8C23F981E70086C3ED /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F4DC6EA323F983150086C3ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4DC6EB023F993DF0086C3ED /* DataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F4DC6EA623F987AB0086C3ED /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F4DC6EA823F989880086C3ED /* APIResult.swift */,
+				F4DC6EAA23F9899A0086C3ED /* httpMethod.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +244,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DC6EAB23F9899A0086C3ED /* httpMethod.swift in Sources */,
+				F4DC6EAF23F98A340086C3ED /* EndPointRouter.swift in Sources */,
+				F4DC6EA523F987840086C3ED /* NetworkManager.swift in Sources */,
+				F4DC6EA923F989880086C3ED /* APIResult.swift in Sources */,
 				F4DC6E8B23F981E70086C3ED /* ViewController.swift in Sources */,
+				F4DC6EAD23F98A200086C3ED /* APIEnvironmentPath.swift in Sources */,
 				F4DC6E8723F981E70086C3ED /* AppDelegate.swift in Sources */,
 				F4DC6E8923F981E70086C3ED /* SceneDelegate.swift in Sources */,
+				F4DC6EB123F993DF0086C3ED /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
