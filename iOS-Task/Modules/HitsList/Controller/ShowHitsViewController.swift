@@ -98,7 +98,6 @@ extension ShowHitsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        DispatchQueue.main.async {}
         safeIndexPath = indexPath.row
         self.performSegue(withIdentifier: "goToActivityItemViewController", sender: nil)
     }
