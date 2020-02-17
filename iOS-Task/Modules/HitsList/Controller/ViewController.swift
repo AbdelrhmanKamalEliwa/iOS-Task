@@ -17,15 +17,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        registerTableView()
         ListTableView.delegate = self
         ListTableView.dataSource = self
         fetchData()
-//        ListTableView.reloadData()
         
     }
     
     
+    func registerTableView() {
+        ListTableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+    }
     
     func fetchData() {
         let networkManager = NetworkManager()
@@ -35,10 +37,9 @@ class ViewController: UIViewController {
                 
             case .success(let data):
                 self.hitsArray = data.hits
-//                DispatchQueue.main.async {}
-                self.ListTableView.reloadData()
-
-                print(self.hitsArray)
+                DispatchQueue.main.async {
+                    self.ListTableView.reloadData()
+                }
                 break
             case .failure(let error):
                 if error != nil {
@@ -77,7 +78,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.userNameLabel.text = hitsArray[indexPath.row].user
         cell.likesLabel.text = "\(hitsArray[indexPath.row].likes)"
-        //        cell.userImage.kf.indicatorType = .activity
+        cell.userImage.kf.indicatorType = .activity
         let dummyImage = UIImageView()
         if let imgStringUrl = hitsArray[indexPath.row].largeImageURL, let imgUrl = URL(string: imgStringUrl) {
             dummyImage.kf.setImage(with: imgUrl, placeholder: nil, options: nil, progressBlock: nil) { (result) in
