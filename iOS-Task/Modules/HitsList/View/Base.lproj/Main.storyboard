@@ -52,7 +52,7 @@
                                     <constraint firstAttribute="height" constant="55" id="80f-Gk-qge"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deafult User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9N-FG-58g">
@@ -61,7 +61,7 @@
                                     <constraint firstAttribute="height" constant="55" id="Av1-qA-bVz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.7576604999866583" green="0.7576604999866583" blue="0.7576604999866583" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlM-rX-MjM">
@@ -70,7 +70,7 @@
                                     <constraint firstAttribute="height" constant="55" id="11u-XC-ALR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJm-fQ-R4J">
@@ -79,7 +79,7 @@
                                     <constraint firstAttribute="height" constant="55" id="TnV-Ib-mH7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.75766049999999996" green="0.75766049999999996" blue="0.75766049999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efe-M9-orR">
@@ -101,7 +101,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.059968558362292756" green="0.059968558362292756" blue="0.059968558362292756" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="AlM-rX-MjM" firstAttribute="top" secondItem="j9N-FG-58g" secondAttribute="bottom" constant="8" id="2bi-yv-ole"/>
                             <constraint firstItem="hE3-8G-nJs" firstAttribute="trailing" secondItem="50e-eK-v9F" secondAttribute="trailing" constant="20" id="7qm-NK-c7Q"/>
@@ -127,8 +127,8 @@
                     </view>
                     <connections>
                         <outlet property="hitsImageView" destination="up0-yD-Z8d" id="FtK-gn-JVe"/>
-                        <outlet property="hitsLikes" destination="oJm-fQ-R4J" id="lwO-lB-QjV"/>
-                        <outlet property="hitsUserName" destination="j9N-FG-58g" id="CIA-1m-LuV"/>
+                        <outlet property="hitsLikesLabel" destination="oJm-fQ-R4J" id="lwO-lB-QjV"/>
+                        <outlet property="hitsUserNameLabel" destination="j9N-FG-58g" id="CIA-1m-LuV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSd-O0-Tdl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

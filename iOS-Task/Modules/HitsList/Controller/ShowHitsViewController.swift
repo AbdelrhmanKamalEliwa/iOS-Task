@@ -10,6 +10,7 @@ import UIKit
 
 class ShowHitsViewController: UIViewController {
     
+    var safeIndexPath = 0
     let cellIdentifier = "HitsViewCell"
     var hitsArray = [hits]()
     
@@ -21,7 +22,6 @@ class ShowHitsViewController: UIViewController {
         ListTableView.delegate = self
         ListTableView.dataSource = self
         fetchData()
-        
     }
     
     
@@ -63,39 +63,46 @@ class ShowHitsViewController: UIViewController {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "goToActivityItemViewController" {
+            let hitSafeData = segue.destination as! ActivityItemViewController
+            hitSafeData.hitData = self.hitsArray[safeIndexPath]
+        }
+    }
+    
 }
 
 
 
 //MARK: - Setup TableView
 extension ShowHitsViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return hitsArray.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HitsViewCell
         
         cell.displayData(hitsName: hitsArray[indexPath.row].user, hitsLikes: hitsArray[indexPath.row].likes, profileImageStringURl: hitsArray[indexPath.row].largeImageURL)
-
+        
         return cell
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        DispatchQueue.main.async {}
-            self.performSegue(withIdentifier: "goToActivityItemViewController", sender: nil)
-        
+        safeIndexPath = indexPath.row
+        self.performSegue(withIdentifier: "goToActivityItemViewController", sender: nil)
     }
-
+    
 }
 
 
