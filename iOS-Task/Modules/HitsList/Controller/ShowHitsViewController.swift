@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ShowHitsViewController: UIViewController {
     
     let cellIdentifier = "HitsViewCell"
     var hitsArray = [hits]()
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
 
 
 //MARK: - Setup TableView
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension ShowHitsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return hitsArray.count
@@ -101,6 +101,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        DispatchQueue.main.async {}
+            self.performSegue(withIdentifier: "goToActivityItemViewController", sender: nil)
+        
     }
 
 }
