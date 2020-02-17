@@ -104,7 +104,6 @@
 				F4DC6E9D23F982640086C3ED /* Assets */,
 				F4DC6E9E23F9826E0086C3ED /* Configurations */,
 				F4DC6E9F23F9828C0086C3ED /* Application */,
-				F4DC6E9423F981E80086C3ED /* Info.plist */,
 			);
 			path = "iOS-Task";
 			sourceTree = "<group>";
@@ -146,6 +145,7 @@
 		F4DC6E9E23F9826E0086C3ED /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
+				F4DC6E9423F981E80086C3ED /* Info.plist */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -479,7 +479,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B39DQ9LWFN;
-				INFOPLIST_FILE = "iOS-Task/Info.plist";
+				INFOPLIST_FILE = "iOS-Task/Configurations/Info.plist";
+				INFOPLIST_PREFIX_HEADER = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,7 +499,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B39DQ9LWFN;
-				INFOPLIST_FILE = "iOS-Task/Info.plist";
+				INFOPLIST_FILE = "iOS-Task/Configurations/Info.plist";
+				INFOPLIST_PREFIX_HEADER = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
