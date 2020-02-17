@@ -12,8 +12,8 @@ class ShowHitsViewController: UIViewController {
     
     let cellIdentifier = "HitsViewCell"
     var hitsArray = [hits]()
-    @IBOutlet weak var ListTableView: UITableView!
     
+    @IBOutlet weak var ListTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,7 @@ class ShowHitsViewController: UIViewController {
     func registerTableView() {
         ListTableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
+    
     
     func fetchData() {
         let networkManager = NetworkManager()
@@ -75,22 +76,8 @@ extension ShowHitsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HitsViewCell
-
-        cell.userNameLabel.text = hitsArray[indexPath.row].user
-        cell.likesLabel.text = "\(hitsArray[indexPath.row].likes)"
-        cell.userImage.kf.indicatorType = .activity
-        let dummyImage = UIImageView()
-        if let imgStringUrl = hitsArray[indexPath.row].largeImageURL, let imgUrl = URL(string: imgStringUrl) {
-            dummyImage.kf.setImage(with: imgUrl, placeholder: nil, options: nil, progressBlock: nil) { (result) in
-                switch result {
-
-                case .success(let img):
-                    cell.userImage.image = img.image
-                case .failure(_):
-                    cell.userImage.image = UIImage(named: "errorImage")
-                }
-            }
-        }
+        
+        cell.displayData(hitsName: hitsArray[indexPath.row].user, hitsLikes: hitsArray[indexPath.row].likes, profileImageStringURl: hitsArray[indexPath.row].largeImageURL)
 
         return cell
     }

@@ -10,8 +10,6 @@ import UIKit
 import Kingfisher
 
 class HitsViewCell: UITableViewCell {
-
-    
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -32,8 +30,7 @@ class HitsViewCell: UITableViewCell {
                     case .success(let image):
                         self.userImage.image = image.image
                     case .failure(_):
-                        self.userImage.image = UIImage(named: "errorImage")?.imageFlippedForRightToLeftLayoutDirection()
-                        self.userImage.image = UIImage(named: "UserProfileICON")?.imageFlippedForRightToLeftLayoutDirection()
+                        self.userImage.image = UIImage(named: "deafultHitImage")?.imageFlippedForRightToLeftLayoutDirection()
                         return
                     }
                 }
@@ -43,13 +40,10 @@ class HitsViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

@@ -18,8 +18,9 @@ class ActivityItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        hitsImageView.image = UIImage(named: "deafultHitImage") 
 
-        // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func backButton(_ sender: Any) {
