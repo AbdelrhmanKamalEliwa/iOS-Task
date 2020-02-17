@@ -8,23 +8,26 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ShowHitsViewController: UIViewController {
     
+    var safeIndexPath = 0
     let cellIdentifier = "HitsViewCell"
     var hitsArray = [hits]()
-    @IBOutlet weak var ListTableView: UITableView!
     
+    @IBOutlet weak var ListTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        registerTableView()
         ListTableView.delegate = self
         ListTableView.dataSource = self
         fetchData()
-//        ListTableView.reloadData()
-        
     }
     
+    
+    func registerTableView() {
+        ListTableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+    }
     
     
     func fetchData() {
@@ -35,10 +38,9 @@ class ViewController: UIViewController {
                 
             case .success(let data):
                 self.hitsArray = data.hits
-//                DispatchQueue.main.async {}
-                self.ListTableView.reloadData()
-
-                print(self.hitsArray)
+                DispatchQueue.main.async {
+                    self.ListTableView.reloadData()
+                }
                 break
             case .failure(let error):
                 if error != nil {
@@ -61,47 +63,45 @@ class ViewController: UIViewController {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "goToActivityItemViewController" {
+            let hitSafeData = segue.destination as! ActivityItemViewController
+            hitSafeData.hitData = self.hitsArray[safeIndexPath]
+        }
+    }
+    
 }
 
 
 
 //MARK: - Setup TableView
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-
+extension ShowHitsViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return hitsArray.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HitsViewCell
-
-        cell.userNameLabel.text = hitsArray[indexPath.row].user
-        cell.likesLabel.text = "\(hitsArray[indexPath.row].likes)"
-        //        cell.userImage.kf.indicatorType = .activity
-        let dummyImage = UIImageView()
-        if let imgStringUrl = hitsArray[indexPath.row].largeImageURL, let imgUrl = URL(string: imgStringUrl) {
-            dummyImage.kf.setImage(with: imgUrl, placeholder: nil, options: nil, progressBlock: nil) { (result) in
-                switch result {
-
-                case .success(let img):
-                    cell.userImage.image = img.image
-                case .failure(_):
-                    cell.userImage.image = UIImage(named: "errorImage")
-                }
-            }
-        }
-
+        
+        cell.displayData(hitsName: hitsArray[indexPath.row].user, hitsLikes: hitsArray[indexPath.row].likes, profileImageStringURl: hitsArray[indexPath.row].largeImageURL)
+        
         return cell
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        safeIndexPath = indexPath.row
+        self.performSegue(withIdentifier: "goToActivityItemViewController", sender: nil)
+    }
+    
 }
 
 
