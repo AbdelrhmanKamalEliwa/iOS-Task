@@ -10,9 +10,9 @@ import UIKit
 
 class ActivityItemViewController: UIViewController {
 
-    @IBOutlet weak var hitsUserNameLabel: UILabel!
-    @IBOutlet weak var hitsLikesLabel: UILabel!
-    @IBOutlet weak var hitsImageView: UIImageView!
+    @IBOutlet private weak var hitsUserNameLabel: UILabel!
+    @IBOutlet private weak var hitsLikesLabel: UILabel!
+    @IBOutlet private weak var hitsImageView: UIImageView!
     
     var hitData: hits?
     

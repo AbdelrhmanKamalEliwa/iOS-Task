@@ -14,7 +14,7 @@ class ShowHitsViewController: UIViewController {
     let cellIdentifier = "HitsViewCell"
     var hitsArray = [hits]()
     
-    @IBOutlet weak var ListTableView: UITableView!
+    @IBOutlet private weak var ListTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
